@@ -287,6 +287,7 @@ class ComposerStaticInit377c4d520b721593b1c8fd1153d83331
     );
 
     public static $classMap = array (
+        'AddUserIdToPosts' => __DIR__ . '/../..' . '/database/migrations/2018_04_28_232700_add_user_id_to_posts.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',

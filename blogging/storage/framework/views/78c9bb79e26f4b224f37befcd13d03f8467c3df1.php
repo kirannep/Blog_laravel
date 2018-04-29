@@ -83,10 +83,12 @@
 										</div>
 									<div class="row">
 										<div class="col-md-12">
-											<p><?php echo e($article->article); ?></p>
+											<p><?php echo $article->article; ?></p>
 										</div>
 									</div>
 								<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+								<?php echo e($post->links()); ?>
+
 							<?php endif; ?>
 						</article>
 						<div class = "comment">

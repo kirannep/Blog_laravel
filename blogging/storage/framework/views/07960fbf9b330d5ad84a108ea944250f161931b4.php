@@ -74,7 +74,20 @@
 							
 						</article> -->
 						<article>
-								<h2><?php echo e($post[0]->title); ?></h2>
+							<?php if(count($post)>0): ?>
+								<?php $__currentLoopData = $post; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+									<div class = "row">
+										<div class="col-md-12">
+											<h3 class="text-center"><?php echo e($article->title); ?></h2>
+											</div>
+										</div>
+									<div class="row">
+										<div class="col-md-12">
+											<p><?php echo e($article->article); ?></p>
+										</div>
+									</div>
+								<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							<?php endif; ?>
 						</article>
 						<div class = "comment">
 						<h3>Comments</h3>

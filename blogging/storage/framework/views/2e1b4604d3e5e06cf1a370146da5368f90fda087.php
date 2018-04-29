@@ -14,6 +14,28 @@
                     <?php endif; ?>
 
                     <a href="/posts/create" class="btn btn-primary">Create Post</a>
+                    <br><br>
+                    
+                    
+                    <?php if(count($post)>0): ?>
+								
+									<table class = "table table-striped">
+                                        <tr>
+                                            <th>Title</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        <?php $__currentLoopData = $post; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+										<tr>
+											<td><?php echo e($article->title); ?></td>
+                                        <td><a href="/posts/<?php echo e($article->id); ?>/edit" class="btn btn-primary">Edit</a></td>
+                                            <td><a href="#" class="btn btn-primary">Delete</a></td>
+                                        </tr>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                    </table>
+					<?php endif; ?>
+                    
                     
                 </div>
             </div>

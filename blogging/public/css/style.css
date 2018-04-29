@@ -1,0 +1,115 @@
+.box{
+border:0px red dotted;
+}
+
+
+
+/*
+ * Masthead for nav
+ */
+
+.blog-masthead {
+  background-color: #428bca;
+  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+          box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+}
+
+/* Nav links */
+.blog-nav-item {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-weight: 500;
+  color: #cdddeb;
+}
+.blog-nav-item:hover,
+.blog-nav-item:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Active state gets a caret at the bottom */
+.blog-nav .active {
+  color: #fff;
+}
+.blog-nav .active:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -5px;
+  vertical-align: middle;
+  content: " ";
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid;
+  border-left: 5px solid transparent;
+}
+
+.container{
+max-width:1000px;
+margin-top:40px;
+}
+
+
+
+.leftColumn{
+margin-right:40px;
+background-color:#e9e6e2;
+}
+
+.leftColumn h4{
+font-family: Lucida Sans Unicode;
+font-weight:bold;
+}
+
+.leftColumn p{
+font-family: Andale Mono;
+}
+
+.rightColumn{
+background-color:#e9e6e2;
+}
+
+.row article header h2{
+font-family:Lucida Sans Unicode;
+font-weight:900;
+letter-spacing: -1px;
+margin-bottom:0px;
+}
+
+.row article footer{
+margin-bottom:10px;
+font-family: Andale Mono;
+font-weight: bold;
+}
+
+
+.row article p{
+font-family: Andale Mono;
+font-size:14px;
+}
+
+.comment h3{
+font-family: Lucida Sans Unicode;
+font-weight: bold;
+}
+
+.comment p{
+font-family: Andale Mono;
+font-size:14px;
+}
+
+.form{
+font-family:Lucida Sans Unicode;
+}
+
+.php_style{
+font-size:12px;
+font-weight:bold;
+}
+.admin_php_style{
+font-family: Lucida Sans Unicode;
+font-weight: bold;
+font-size:18px;
+}
