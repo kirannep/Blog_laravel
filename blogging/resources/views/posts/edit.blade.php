@@ -11,14 +11,14 @@
                 <div class="row">
                     <div class="form-group col-xs-5 col-sm-8">
                         <label>Title</label>
-                        <input type = "text" class = "form-control" name = "title">
+                    <input type = "text" class = "form-control" name = "title" value = "{{$editting->title}}">
                     </div>
                 </div>
                       
                 <div class="row">
                     <div class="form-group col-xs-6 col-sm-10">
                         <label>Article</label>
-                        <textarea type = "text" class = "form-control"  name = "article-ckeditor" ></textarea>
+                    <textarea type = "text" class = "form-control"  name = "article-ckeditor" >{{$editting->article}}</textarea>
                     </div>
                 </div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 

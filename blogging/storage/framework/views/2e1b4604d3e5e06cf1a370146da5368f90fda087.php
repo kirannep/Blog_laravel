@@ -29,7 +29,13 @@
 										<tr>
 											<td><?php echo e($article->title); ?></td>
                                         <td><a href="/posts/<?php echo e($article->id); ?>/edit" class="btn btn-primary">Edit</a></td>
-                                            <td><a href="#" class="btn btn-primary">Delete</a></td>
+                                            <td>
+                                                <form action = "<?php echo e(route('posts.destroy',$article->id)); ?>" method ='POST' class = "pull-right">
+                                                    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+                                                    <input type="hidden" name="_method" value="DELETE">                                                     
+                                                    <button type="submit" class="btn btn-primary">Delete</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 

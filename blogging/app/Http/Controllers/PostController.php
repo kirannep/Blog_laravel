@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         //$show = Post::all();
-        $show = Post::orderBy('id','desc')->paginate(5);
+        $show = Post::orderBy('id','desc')->paginate(1);
        return view('pages/blog')->with('post',$show);
     }
 
@@ -110,6 +110,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Post::find($id);
+        $delete->delete();
+        return redirect('/dashboard');
     }
 }
