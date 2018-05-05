@@ -18,10 +18,30 @@ Route::get('/','pageController@index');
 Route::get('/admin','pageController@admin');
 Route::get('/auth/login','pageController@auth');
 Auth::routes();
+<<<<<<< HEAD
 Route::get('/','PostController@index');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::resource('posts','PostController');
+=======
+
+//opens up homepage 
+Route::get('/','PostController@index');
+//Route::get('/posts','PostController@store');
+
+
+
+Route::get('/dashboard', 'DashboardController@index');
+Route::resource('posts','PostController');
+Route::post('posts/{post}/comments','CommentController@store');
+//Route::get('/dashboard','PostController@dashboard');
+//Route::resource('/','CommentController');
+//Route::get('/','CommentController@index');
+//Route::get('/','PostController@index');
+
+//Route::get('/','PostController@comment');
+
+>>>>>>> main
 
 
 

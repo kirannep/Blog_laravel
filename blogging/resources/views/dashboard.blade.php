@@ -15,6 +15,37 @@
                     @endif
 
                     <a href="/posts/create" class="btn btn-primary">Create Post</a>
+<<<<<<< HEAD
+=======
+                    <br><br>
+                    
+                    
+                    @if(count($post)>0)
+								
+									<table class = "table table-striped">
+                                        <tr>
+                                            <th>Title</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        @foreach($post as $article)
+										<tr>
+											<td>{{$article->title}}</td>
+                                        <td><a href="/posts/{{$article->id}}/edit" class="btn btn-primary">Edit</a></td>
+                                            <td>
+                                                <form action = "{{route('posts.destroy',$article->id)}}" method ='POST' class = "pull-right">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <input type="hidden" name="_method" value="DELETE">                                                     
+                                                    <button type="submit" class="btn btn-primary">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+
+                                    </table>
+					@endif
+                    
+>>>>>>> main
                     
                 </div>
             </div>
