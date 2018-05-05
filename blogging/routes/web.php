@@ -27,7 +27,13 @@ Route::get('/','PostController@index');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::resource('posts','PostController');
+Route::post('posts/{post}/comments','CommentController@store');
 //Route::get('/dashboard','PostController@dashboard');
+//Route::resource('/','CommentController');
+//Route::get('/','CommentController@index');
+//Route::get('/','PostController@index');
+
+//Route::get('/','PostController@comment');
 
 
 

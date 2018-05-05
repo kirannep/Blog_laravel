@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\readerComment;
 
 class PostController extends Controller
 {
@@ -12,20 +13,34 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth',['only'=>['create','edit']]);
+    }
+
     public function index()
     {
         //$show = Post::all();
         $show = Post::orderBy('id','desc')->paginate(1);
-       return view('pages/blog')->with('post',$show);
+        return view('pages/blog')->with('post',$show);
+       //return view('pages.blog',compact('posts'));
     }
 
-   /** 
+     /** 
+    public function comment()
+    {
+        $s = readerComment::all();
+        return view('pages/blog')->with('commentShow',$s);
+    }
+
+
+
+    /** 
     public function dashboard(){
         $dboard = Post::all();
         return view('/dashboard')->with('post',$dboard);
     }
     */
-
     /**
      * Show the form for creating a new resource.
      *

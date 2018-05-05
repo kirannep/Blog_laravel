@@ -75,6 +75,7 @@
 							
 						</article> -->
 						<article>
+							
 							@if(count($post)>0)
 								@foreach($post as $article)
 									<div class = "row">
@@ -84,49 +85,62 @@
 										</div>
 									<div class="row">
 										<div class="col-md-12">
-											<p>{!!$article->article!!}</p>
+											<li class="list-group-item"><p>{!!$article->article!!}</p></li>
 										</div>
 									</div>
+									<hr>
+									<!-- Comment section -->
+									<div class = "comment">
+										<ul class="list-group">
+										<strong>Comments</strong>
+										@foreach($article->comments as $comment)
+											<li class="list-group-item">{{$comment->comment}}
+												<br>
+												<p><em><small>written by </small></em> : <strong><small>{{$comment->name}}&nbsp;{{$comment->created_at->diffForHumans()}}</small></h6></strong>
+												</p>
+											</li>
+											@include('messages')
+										@endforeach
+										</ul>
+									</div>
 								@endforeach
-								{{$post->links()}}
 							@endif
-						</article>
-						<div class = "comment">
-						<h3>Comments</h3>
-							<div class = "row">
-								<div class = "col-md-12">
 								
-									<p><?php echo "comment section" ?></p>
+							
+								<hr>
+									<!--Form allows user to insert comments-->
+								<form action = "/posts/{{$article->id}}/comments" method = "post" class = "form">
+								<div class="row">
+									<div class="form-group col-xs-5">
+										<label>Name</label>
+										<input type="text" class="form-control" name ="name" placeholder="Name">
+									</div>
 								</div>
-							</div>
-						</div>
-						<hr/>
+								  
+								<div class="row">
+									<div class="form-group col-xs-5">
+										<label>Email address</label>
+										<input type="email" class="form-control" name ="email" placeholder="Email">
+									</div>
+								</div>
+								  
+								<div class="row">
+									<div class="form-group col-xs-5">
+										<label>Comment</label>
+										<textarea type = "text" class = "form-control" name = "comment"></textarea>
+									</div>
+								</div>
+								<input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+
+								<button type="submit" class="btn btn-default">Submit</button>
+							</form>
+								
+								{{$post->links()}}
+							
+						</article>
 						
-						<!--Form allows user to insert comments-->
-						<form action = "insert.php" method = "post" class = "form">
-							<div class="row">
-								<div class="form-group col-xs-5">
-									<label>Name</label>
-									<input type="text" class="form-control" name ="name" placeholder="Name">
-								</div>
-							</div>
-							  
-							<div class="row">
-								<div class="form-group col-xs-5">
-									<label>Email address</label>
-									<input type="email" class="form-control" name ="email" placeholder="Email">
-								</div>
-							</div>
-							  
-							<div class="row">
-								<div class="form-group col-xs-5">
-									<label>Comment</label>
-									<textarea type = "text" class = "form-control" name = "comment"></textarea>
-								</div>
-							</div>
-							  
-							<button type="submit" class="btn btn-default">Submit</button>
-						</form>
+						
+						
 						<hr/>
 						
 						

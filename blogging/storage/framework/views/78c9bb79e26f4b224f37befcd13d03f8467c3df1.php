@@ -75,6 +75,7 @@
 							
 						</article> -->
 						<article>
+							
 							<?php if(count($post)>0): ?>
 								<?php $__currentLoopData = $post; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 									<div class = "row">
@@ -84,50 +85,64 @@
 										</div>
 									<div class="row">
 										<div class="col-md-12">
-											<p><?php echo $article->article; ?></p>
+											<li class="list-group-item"><p><?php echo $article->article; ?></p></li>
 										</div>
 									</div>
+									<hr>
+									<!-- Comment section -->
+									<div class = "comment">
+										<ul class="list-group">
+										<strong>Comments</strong>
+										<?php $__currentLoopData = $article->comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+											<li class="list-group-item"><?php echo e($comment->comment); ?>
+
+												<br>
+												<p><em><small>written by </small></em> : <strong><small><?php echo e($comment->name); ?>&nbsp;<?php echo e($comment->created_at->diffForHumans()); ?></small></h6></strong>
+												</p>
+											</li>
+											<?php echo $__env->make('messages', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+										</ul>
+									</div>
 								<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							<?php endif; ?>
+								
+							
+								<hr>
+									<!--Form allows user to insert comments-->
+								<form action = "/posts/<?php echo e($article->id); ?>/comments" method = "post" class = "form">
+								<div class="row">
+									<div class="form-group col-xs-5">
+										<label>Name</label>
+										<input type="text" class="form-control" name ="name" placeholder="Name">
+									</div>
+								</div>
+								  
+								<div class="row">
+									<div class="form-group col-xs-5">
+										<label>Email address</label>
+										<input type="email" class="form-control" name ="email" placeholder="Email">
+									</div>
+								</div>
+								  
+								<div class="row">
+									<div class="form-group col-xs-5">
+										<label>Comment</label>
+										<textarea type = "text" class = "form-control" name = "comment"></textarea>
+									</div>
+								</div>
+								<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>"> 
+
+								<button type="submit" class="btn btn-default">Submit</button>
+							</form>
+								
 								<?php echo e($post->links()); ?>
 
-							<?php endif; ?>
+							
 						</article>
-						<div class = "comment">
-						<h3>Comments</h3>
-							<div class = "row">
-								<div class = "col-md-12">
-								
-									<p><?php echo "comment section" ?></p>
-								</div>
-							</div>
-						</div>
-						<hr/>
 						
-						<!--Form allows user to insert comments-->
-						<form action = "insert.php" method = "post" class = "form">
-							<div class="row">
-								<div class="form-group col-xs-5">
-									<label>Name</label>
-									<input type="text" class="form-control" name ="name" placeholder="Name">
-								</div>
-							</div>
-							  
-							<div class="row">
-								<div class="form-group col-xs-5">
-									<label>Email address</label>
-									<input type="email" class="form-control" name ="email" placeholder="Email">
-								</div>
-							</div>
-							  
-							<div class="row">
-								<div class="form-group col-xs-5">
-									<label>Comment</label>
-									<textarea type = "text" class = "form-control" name = "comment"></textarea>
-								</div>
-							</div>
-							  
-							<button type="submit" class="btn btn-default">Submit</button>
-						</form>
+						
+						
 						<hr/>
 						
 						

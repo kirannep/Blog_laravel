@@ -287,6 +287,7 @@ class ComposerStaticInit377c4d520b721593b1c8fd1153d83331
     );
 
     public static $classMap = array (
+        'AddPostIdToComment' => __DIR__ . '/../..' . '/database/migrations/2018_05_04_100901_add_post_id_to_comment.php',
         'AddUserIdToPosts' => __DIR__ . '/../..' . '/database/migrations/2018_04_28_232700_add_user_id_to_posts.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -310,6 +311,7 @@ class ComposerStaticInit377c4d520b721593b1c8fd1153d83331
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\readerComment' => __DIR__ . '/../..' . '/app/readerComment.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
@@ -318,6 +320,7 @@ class ComposerStaticInit377c4d520b721593b1c8fd1153d83331
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePostsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_19_134153_create_posts_table.php',
+        'CreateReaderCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_03_094845_create_reader_comments_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
